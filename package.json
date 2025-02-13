@@ -1,0 +1,27 @@
+{
+  "name": "scrapers",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TheGreatTeams/Scrapers.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TheGreatTeams/Scrapers/issues"
+  },
+  "homepage": "https://github.com/TheGreatTeams/Scrapers#readme",
+  "description": "",
+  "dependencies": {
+    "axios": "^1.7.9",
+    "cheerio": "^1.0.0",
+    "form-data": "^4.0.1",
+    "fs": "^0.0.1-security",
+    "qs": "^6.14.0"
+  }
+}
