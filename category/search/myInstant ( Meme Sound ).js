@@ -20,7 +20,6 @@ const memeSound = async (nameSound) => {
        instant.title = $(element).find('button.small-button').attr('title');
        instant.text = $(element).find('.instant-link').text();
        instant.url = $(element).find('.instant-link').attr('href');
-       });
 
        results.push(instant);
    });
