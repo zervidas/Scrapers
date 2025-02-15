@@ -1,7 +1,7 @@
 import axios from "axios";
 import * as cheerio from "cheerio";
 
-async function anichinSearch(query) => {
+async function anichinSearch(query) {
       try {
          let { data } = await axios.get(`https://anichin.xyz/?s=${encodeURIComponent(query)}`);
          let $ = cheerio.load(data);
