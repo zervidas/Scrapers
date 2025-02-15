@@ -16,16 +16,15 @@ async function loadModules(dir, base = '') {
         const stat = fs.statSync(fullPath);
 
         if (stat.isDirectory()) {
-            // Jika folder, rekursi dengan path base agar namespace tetap rapi
             await loadModules(fullPath, `${base}${file}/`);
         } else if (file.endsWith('.js')) {
-            // Jika file JS, import dan tambahkan ke objek ekspor dengan struktur folder
-            const moduleName = path.basename(file, '.js'); // Ambil nama file tanpa ekstensi
-            const module = await import(`file://${fullPath}`); // ESM import harus pakai URL
-            
-            // Simpan modul dengan namespace berdasarkan foldernya
-            if (!modules[base]) modules[base] = {};
-            modules[base][moduleName] = module.default || module;
+            const moduleName = path.basename(file, '.js');
+            const module = await import(`file://${fullPath}`);
+
+            // Hilangkan "/" di akhir nama folder agar key tetap rapi
+            const cleanBase = base.replace(/\/$/, '');
+            if (!modules[cleanBase]) modules[cleanBase] = {};
+            modules[cleanBase][moduleName] = module.default || module;
         }
     }
 }
